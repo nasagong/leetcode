@@ -15,9 +15,7 @@ public:
                 dp[i] = min(dp[i-value] + 1, dp[i]);
             }
         }
-
         if(dp.back() == max) return -1;
         return dp.back();
-
     }
-};
+}
