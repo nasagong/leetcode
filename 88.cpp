@@ -1,17 +1,17 @@
 #include <bits/stdc++.h>
 
 class Solution {
-public:
-    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
-        int p1 = m-1;
-        int p2 = n-1;
-        int p = m + n - 1;
-
-        while(p1 >= 0 && p2 >= 0){
-            if(nums1[p1] > nums2[p2]){
-                nums1[p] = nums1[p1];
-                p1--;
+    public:
+        void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+            int idx = m + n - 1; --m; --n;
+            while (n >= 0) {
+                if (m >= 0 && nums1[m] > nums2[n]) {
+                    nums1[idx] = nums1[m--];
+                } else {
+                    nums1[idx] = nums2[n--];
+                }
+                --idx;
             }
+            return;
         }
-    }
-};
+    };
